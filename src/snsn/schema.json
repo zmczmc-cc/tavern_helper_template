@@ -8,7 +8,7 @@
       "type": "object",
       "properties": {
         "当前时间": {
-          "default": 1783015516833,
+          "default": 1783017312887,
           "type": "number"
         },
         "战场区域": {
@@ -79,7 +79,7 @@
             ]
           },
           "好感度": {
-            "default": 0,
+            "default": 50,
             "type": "number"
           },
           "状态": {
@@ -99,6 +99,26 @@
               "初始成员",
               "收编"
             ]
+          },
+          "外貌": {
+            "default": "待生成",
+            "type": "string"
+          },
+          "性格": {
+            "default": "待生成",
+            "type": "string"
+          },
+          "性癖": {
+            "default": "待生成",
+            "type": "string"
+          },
+          "装备": {
+            "default": "标准配备",
+            "type": "string"
+          },
+          "简介": {
+            "default": "待生成",
+            "type": "string"
           }
         }
       }

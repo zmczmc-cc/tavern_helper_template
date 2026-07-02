@@ -81,14 +81,16 @@
           <div v-if="data.简介 && data.简介 !== '待生成'" class="mem-row mem-intro">
             {{ data.简介 }}
           </div>
-          <!-- 展开详情按钮 -->
-          <div v-if="data.外貌 && data.外貌 !== '待生成'" class="mem-detail-toggle" @click="toggleDetail(name)">
+          <!-- 详情：始终可展开 -->
+          <div class="mem-detail-toggle" @click="toggleDetail(name)">
             {{ expandedMembers[name] ? '▲ 收起' : '▼ 详情' }}
           </div>
-          <!-- 展开的详情 -->
           <div v-if="expandedMembers[name]" class="mem-detail">
             <div v-if="data.外貌 && data.外貌 !== '待生成'" class="detail-line">
               <span class="detail-label">外貌</span>{{ data.外貌 }}
+            </div>
+            <div v-if="data.外貌 === '待生成'" class="detail-line detail-pending">
+              档案尚未生成
             </div>
             <div v-if="data.性格 && data.性格 !== '待生成'" class="detail-line">
               <span class="detail-label">性格</span>{{ data.性格 }}
@@ -376,10 +378,8 @@ function itemTypeClass(type: string) {
   font-weight: bold;
   min-width: 24px;
   text-align: right;
+  color: var(--c-text-bright);
 }
-.aff-num.aff-high { color: var(--c-bar-fill-high); }
-.aff-num.aff-mid { color: var(--c-bar-fill-mid); }
-.aff-num.aff-low { color: var(--c-bar-fill); }
 
 .source-row {
   margin-top: 2px;
@@ -458,5 +458,9 @@ function itemTypeClass(type: string) {
   color: var(--c-accent);
   font-weight: bold;
   margin-right: 4px;
+}
+.detail-pending {
+  color: var(--c-text-muted);
+  font-style: italic;
 }
 </style>
