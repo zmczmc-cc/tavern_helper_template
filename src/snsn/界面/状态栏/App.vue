@@ -77,6 +77,29 @@
             <span class="mem-key">来源</span>
             <span class="mem-source" :class="{ recruit: data.来源 === '收编' }">{{ data.来源 === '初始成员' ? '初始' : '收编' }}</span>
           </div>
+          <!-- 简介 -->
+          <div v-if="data.简介 && data.简介 !== '待生成'" class="mem-row mem-intro">
+            {{ data.简介 }}
+          </div>
+          <!-- 展开详情按钮 -->
+          <div v-if="data.外貌 && data.外貌 !== '待生成'" class="mem-detail-toggle" @click="toggleDetail(name)">
+            {{ expandedMembers[name] ? '▲ 收起' : '▼ 详情' }}
+          </div>
+          <!-- 展开的详情 -->
+          <div v-if="expandedMembers[name]" class="mem-detail">
+            <div v-if="data.外貌 && data.外貌 !== '待生成'" class="detail-line">
+              <span class="detail-label">外貌</span>{{ data.外貌 }}
+            </div>
+            <div v-if="data.性格 && data.性格 !== '待生成'" class="detail-line">
+              <span class="detail-label">性格</span>{{ data.性格 }}
+            </div>
+            <div v-if="data.性癖 && data.性癖 !== '待生成'" class="detail-line">
+              <span class="detail-label">性癖</span>{{ data.性癖 }}
+            </div>
+            <div v-if="data.装备 && data.装备 !== '标准配备'" class="detail-line">
+              <span class="detail-label">装备</span>{{ data.装备 }}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -99,6 +122,11 @@ import _ from 'lodash';
 import { useDataStore } from './store';
 
 const store = useDataStore();
+
+const expandedMembers = reactive<Record<string, boolean>>({});
+function toggleDetail(name: string) {
+  expandedMembers[name] = !expandedMembers[name];
+}
 
 function statusClass(status: string) {
   const map: Record<string, string> = {
@@ -394,4 +422,41 @@ function itemTypeClass(type: string) {
 
 .item-name { color: var(--c-text); }
 .item-qty { font-weight: bold; color: var(--c-text-bright); }
+
+/* 成员详情 */
+.mem-intro {
+  font-size: 10px;
+  color: var(--c-accent);
+  font-style: italic;
+  padding-top: 2px;
+  border-top: 1px dashed var(--c-border);
+  margin-top: 2px;
+}
+.mem-detail-toggle {
+  font-size: 10px;
+  color: var(--c-accent-blue);
+  cursor: pointer;
+  text-align: center;
+  padding: 3px 0;
+  &:hover { color: var(--c-text-bright); }
+}
+.mem-detail {
+  background: var(--c-bg-dark);
+  border: 1px solid var(--c-border);
+  border-radius: 2px;
+  padding: 6px 8px;
+  margin-top: 2px;
+}
+.detail-line {
+  font-size: 10px;
+  line-height: 1.5;
+  margin-bottom: 3px;
+  color: var(--c-text);
+  &:last-child { margin-bottom: 0; }
+}
+.detail-label {
+  color: var(--c-accent);
+  font-weight: bold;
+  margin-right: 4px;
+}
 </style>
