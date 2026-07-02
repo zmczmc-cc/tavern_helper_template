@@ -1,0 +1,32 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --c-primary: #c0392b;
+  --c-primary-light: #e74c3c;
+  --c-bg-dark: #1a1a1a;
+  --c-bg-card: #242424;
+  --c-bg-panel: #2a2a2a;
+  --c-text: #d4d4d4;
+  --c-text-bright: #f0f0f0;
+  --c-text-muted: #888;
+  --c-accent: #f39c12;
+  --c-accent-green: #27ae60;
+  --c-accent-blue: #3498db;
+  --c-accent-red: #e74c3c;
+  --c-accent-purple: #9b59b6;
+  --c-border: #3a3a3a;
+  --c-bar-bg: #333;
+  --c-bar-fill: #e74c3c;
+  --c-bar-fill-mid: #f39c12;
+  --c-bar-fill-high: #2ecc71;
+  --c-status-normal: #2ecc71;
+  --c-status-light: #f39c12;
+  --c-status-heavy: #e67e22;
+  --c-status-broken: #e74c3c;
+
+  font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+}

@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "default": {},
+  "type": "object",
+  "properties": {
+    "世界": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "当前时间": {
+          "default": 1783008929280,
+          "type": "number"
+        },
+        "战场区域": {
+          "default": "尚未部署",
+          "type": "string"
+        }
+      }
+    },
+    "主角": {
+      "default": {},
+      "type": "object",
+      "properties": {
+        "功绩点数": {
+          "default": 0,
+          "type": "number"
+        },
+        "军功": {
+          "default": "无",
+          "type": "string",
+          "enum": [
+            "无",
+            "三等功",
+            "二等功",
+            "一等功"
+          ]
+        },
+        "摧毁激光塔": {
+          "default": 0,
+          "type": "number"
+        },
+        "占领营地": {
+          "default": 0,
+          "type": "number"
+        },
+        "连续无损任务": {
+          "default": 0,
+          "type": "number"
+        },
+        "营地": {
+          "default": "后方营地",
+          "type": "string",
+          "enum": [
+            "后方营地",
+            "前线营地"
+          ]
+        }
+      }
+    },
+    "小队": {
+      "default": {},
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "description": "人形名称"
+      },
+      "additionalProperties": {
+        "default": {},
+        "type": "object",
+        "properties": {
+          "类型": {
+            "default": "突击兵",
+            "type": "string",
+            "enum": [
+              "突击兵",
+              "侦察兵",
+              "游击兵",
+              "重装兵"
+            ]
+          },
+          "好感度": {
+            "default": 0,
+            "type": "number"
+          },
+          "状态": {
+            "default": "正常",
+            "type": "string",
+            "enum": [
+              "正常",
+              "轻损",
+              "重损",
+              "待修复"
+            ]
+          },
+          "来源": {
+            "default": "收编",
+            "type": "string",
+            "enum": [
+              "初始成员",
+              "收编"
+            ]
+          }
+        }
+      }
+    },
+    "仓库": {
+      "default": {},
+      "type": "object",
+      "propertyNames": {
+        "type": "string",
+        "description": "物品名"
+      },
+      "additionalProperties": {
+        "default": {},
+        "type": "object",
+        "properties": {
+          "数量": {
+            "default": 0,
+            "type": "number"
+          },
+          "类型": {
+            "default": "消耗品",
+            "type": "string",
+            "enum": [
+              "武器",
+              "弹药",
+              "配件",
+              "消耗品",
+              "其他"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
