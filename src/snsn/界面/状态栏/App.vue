@@ -60,9 +60,15 @@
             <span class="mem-key">状态</span>
             <span class="mem-status" :class="statusClass(data.状态)">{{ data.状态 }}</span>
           </div>
-          <!-- 好感度 -->
+          <!-- 好感度条 -->
           <div class="mem-row">
             <span class="mem-key">好感</span>
+            <div class="aff-bar">
+              <div
+                class="aff-fill"
+                :style="{ width: data.好感度 + '%' }"
+              ></div>
+            </div>
             <span class="aff-num">{{ data.好感度 }}</span>
           </div>
           <!-- 来源 -->
@@ -342,7 +348,22 @@ function itemTypeClass(type: string) {
 .st-heavy { color: var(--c-status-heavy); }
 .st-broken { color: var(--c-status-broken); }
 
-/* 好感度 */
+/* 好感度条 */
+.aff-bar {
+  flex: 1;
+  height: 8px;
+  background: var(--c-bar-bg);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.aff-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+  background: var(--c-accent);
+}
+
 .aff-num {
   font-size: 12px;
   font-weight: bold;
