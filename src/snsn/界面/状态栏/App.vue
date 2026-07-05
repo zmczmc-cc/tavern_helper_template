@@ -379,6 +379,9 @@ function itemTypeClass(type: string) {
   min-width: 24px;
   text-align: right;
   color: var(--c-text-bright);
+  &.aff-high { color: #2ecc71 !important; }
+  &.aff-mid { color: #f39c12 !important; }
+  &.aff-low { color: #e74c3c !important; }
 }
 
 .source-row {
@@ -433,12 +436,16 @@ function itemTypeClass(type: string) {
   margin-top: 2px;
 }
 .mem-detail-toggle {
-  font-size: 10px;
+  display: block !important;
+  font-size: 11px;
   color: var(--c-accent-blue);
   cursor: pointer;
   text-align: center;
-  padding: 3px 0;
-  &:hover { color: var(--c-text-bright); }
+  padding: 4px 0;
+  border-top: 1px solid var(--c-border);
+  margin-top: 4px;
+  user-select: none;
+  &:hover { color: var(--c-text-bright); background: var(--c-bg-panel); }
 }
 .mem-detail {
   background: var(--c-bg-dark);
