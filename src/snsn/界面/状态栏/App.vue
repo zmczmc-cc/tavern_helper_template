@@ -77,10 +77,6 @@
             <span class="mem-key">来源</span>
             <span class="mem-source" :class="{ recruit: data.来源 === '收编' }">{{ data.来源 === '初始成员' ? '初始' : '收编' }}</span>
           </div>
-          <!-- 简介 -->
-          <div v-if="data.简介 && data.简介 !== '待生成'" class="mem-row mem-intro">
-            {{ data.简介 }}
-          </div>
           <!-- 详情：始终可展开 -->
           <div class="mem-detail-toggle" @click="toggleDetail(name)">
             {{ expandedMembers[name] ? '▲ 收起' : '▼ 详情' }}
@@ -422,14 +418,6 @@ function itemTypeClass(type: string) {
 .item-qty { font-weight: bold; color: var(--c-text-bright); }
 
 /* 成员详情 */
-.mem-intro {
-  font-size: 10px;
-  color: var(--c-accent);
-  font-style: italic;
-  padding-top: 2px;
-  border-top: 1px dashed var(--c-border);
-  margin-top: 2px;
-}
 .mem-detail-toggle {
   display: block !important;
   font-size: 11px;
