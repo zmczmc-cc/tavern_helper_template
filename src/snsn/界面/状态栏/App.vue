@@ -60,17 +60,10 @@
             <span class="mem-key">状态</span>
             <span class="mem-status" :class="statusClass(data.状态)">{{ data.状态 }}</span>
           </div>
-          <!-- 好感度条 -->
+          <!-- 好感度 -->
           <div class="mem-row">
             <span class="mem-key">好感</span>
-            <div class="aff-bar">
-              <div
-                class="aff-fill"
-                :class="affectionClass(data.好感度)"
-                :style="{ width: data.好感度 + '%' }"
-              ></div>
-            </div>
-            <span class="aff-num" :class="affectionClass(data.好感度)">{{ data.好感度 }}</span>
+            <span class="aff-num">{{ data.好感度 }}</span>
           </div>
           <!-- 来源 -->
           <div class="mem-row source-row">
@@ -355,33 +348,11 @@ function itemTypeClass(type: string) {
 .st-heavy { color: var(--c-status-heavy); }
 .st-broken { color: var(--c-status-broken); }
 
-/* 好感度条 */
-.aff-bar {
-  flex: 1;
-  height: 8px;
-  background: var(--c-bar-bg);
-  border-radius: 4px;
-  overflow: hidden;
-}
-
-.aff-fill {
-  height: 100%;
-  border-radius: 4px;
-  transition: width 0.5s ease;
-}
-.aff-high { background: var(--c-bar-fill-high); }
-.aff-mid { background: var(--c-bar-fill-mid); }
-.aff-low { background: var(--c-bar-fill); }
-
+/* 好感度 */
 .aff-num {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: bold;
-  min-width: 24px;
-  text-align: right;
   color: var(--c-text-bright);
-  &.aff-high { color: #2ecc71 !important; }
-  &.aff-mid { color: #f39c12 !important; }
-  &.aff-low { color: #e74c3c !important; }
 }
 
 .source-row {
