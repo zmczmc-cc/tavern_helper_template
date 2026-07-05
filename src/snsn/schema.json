@@ -8,7 +8,7 @@
       "type": "object",
       "properties": {
         "当前时间": {
-          "default": 1783241646817,
+          "default": 1783241751709,
           "type": "number"
         },
         "战场区域": {
