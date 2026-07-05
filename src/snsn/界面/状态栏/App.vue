@@ -143,12 +143,6 @@ function typeClass(type: string) {
   return map[type] || '';
 }
 
-function affectionClass(val: number) {
-  if (val >= 80) return 'aff-high';
-  if (val >= 40) return 'aff-mid';
-  return 'aff-low';
-}
-
 const meritClass = computed(() => {
   const m = store.data.主角.军功;
   if (m === '一等功') return 'merit-gold';
