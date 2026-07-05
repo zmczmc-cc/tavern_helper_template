@@ -15,7 +15,7 @@ export const Schema = z.object({
     类型: z.enum(['突击兵', '侦察兵', '游击兵', '重装兵']).prefault('突击兵'),
     好感度: z.coerce.number().transform(v => _.clamp(v, 0, 100)).prefault(50),
     状态: z.enum(['正常', '轻损', '重损', '待修复']).prefault('正常'),
-    来源: z.enum(['初始成员', '收编']).prefault('收编'),
+    来源: z.enum(['初始成员', '收编']).prefault('初始成员'),
     外貌: z.string().prefault('待生成'),
     性格: z.string().prefault('待生成'),
     性癖: z.string().prefault('待生成'),

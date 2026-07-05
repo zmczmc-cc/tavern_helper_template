@@ -8,7 +8,7 @@
       "type": "object",
       "properties": {
         "当前时间": {
-          "default": 1783017355829,
+          "default": 1783239354493,
           "type": "number"
         },
         "战场区域": {
@@ -93,7 +93,7 @@
             ]
           },
           "来源": {
-            "default": "收编",
+            "default": "初始成员",
             "type": "string",
             "enum": [
               "初始成员",
