@@ -66,6 +66,7 @@
             <div class="aff-bar">
               <div
                 class="aff-fill"
+                :class="affectionClass(data.好感度)"
                 :style="{ width: data.好感度 + '%' }"
               ></div>
             </div>
@@ -147,6 +148,12 @@ function typeClass(type: string) {
     '重装兵': 'tp-heavy',
   };
   return map[type] || '';
+}
+
+function affectionClass(val: number) {
+  if (val >= 80) return 'aff-high';
+  if (val >= 40) return 'aff-mid';
+  return 'aff-low';
 }
 
 const meritClass = computed(() => {
@@ -361,8 +368,10 @@ function itemTypeClass(type: string) {
   height: 100%;
   border-radius: 4px;
   transition: width 0.5s ease;
-  background: var(--c-accent);
 }
+.aff-high { background: var(--c-bar-fill-high); }
+.aff-mid { background: var(--c-bar-fill-mid); }
+.aff-low { background: var(--c-bar-fill); }
 
 .aff-num {
   font-size: 12px;
